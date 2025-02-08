@@ -8,7 +8,7 @@ interface UserListProps {
 function UserList({ userList }: UserListProps){
     return (
         <>
-            <div className="grid grid-cols-2 gap-[22px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[22px]">
                 {
                     userList.map((item:searchResultInterface)=>{
                         return (
