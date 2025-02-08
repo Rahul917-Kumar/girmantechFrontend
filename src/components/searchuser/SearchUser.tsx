@@ -6,6 +6,7 @@ import axios from "axios";
 import { searchResultInterface } from "@/types";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import UserList from "../userlist/UserList";
 
 function SearchUser(){
     const { toast } = useToast()
@@ -140,15 +141,7 @@ function SearchUser(){
                     />
                 </div>
                 <div>
-                    {
-                        searchResult.map((item)=>{
-                            return (
-                                <>
-                                    
-                                </>
-                            )
-                        })
-                    }
+                    <UserList userList = {searchResult} />
                 </div>
                 
             </div>
