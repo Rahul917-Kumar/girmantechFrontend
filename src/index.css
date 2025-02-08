@@ -3,26 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.navbar-p{
-  text-transform: uppercase;
-  font-size: 24px;
+body {
+  background: linear-gradient(to bottom, #FFFFFF, #B1CBFF);
+  min-height: 100vh;
 }
-
-.navbar-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: red;
-  
-  /* add height as a media query - for desktop = 110px and for mobile = 60px */ 
-}
-
-.navbar-child{
-  width: 80%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: blue;
-}
-
