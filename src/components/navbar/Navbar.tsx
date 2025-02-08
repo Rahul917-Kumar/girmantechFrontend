@@ -6,7 +6,7 @@ function Navbar(){
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <div className="flex justify-center items-center h-[60px] md:h-[110px]">
+            <div className="flex justify-center items-center h-[60px] md:h-[110px] shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
                 <div className="w-4/5 flex justify-between md:justify-around items-center">
                     {/* Logo */}
                     <div>
