@@ -46,7 +46,13 @@ function SearchUser() {
     }
     return (
         <div>
-            <div className={`flex flex-col absolute md:top-[260px] md:left-[560px] ${!isSearch ?"gap-[80px]":""} `}>
+            <div 
+                className={`
+                    flex md:flex-col absolute md:top-[260px] md:left-[560px] ${!isSearch ?"gap-[80px]":""} 
+                    left-[40px]
+                `}
+
+            >
                 {
                     isSearch?(
                         <></>
@@ -67,39 +73,46 @@ function SearchUser() {
                         </>
                     )
                 }
-                <div className="relative md:w-[800px] md:h-[50px] rounded-xl md:gap-4 md:pl-4 md:pr-4 border border-[#D7D7EA] bg-white shadow-[0_4px_10px_0px_#0000000D]">
-                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-500" />
-                    <Input
-                        placeholder="Search"
-                        className="w-full pl-[32px] placeholder:[font-family:'Sans'] placeholder:font-medium font-[Sans] text-gray-500 font-medium caret-gray-500 placeholder:text-[16px] md:placeholder:text-[18px] text-[16px] md:text-[18px] h-full border-none shadow-none !outline-none !ring-0 !border-transparent"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        onKeyDown={handlePressEnter}
-                    />
-                </div>
+                <div>
+                    <div 
+                        className="
+                            relative md:w-[800px] md:h-[50px] md:rounded-xl md:gap-4 md:mt-[0px] pl-4 pr-4 border border-[#D7D7EA] bg-white shadow-[0_4px_10px_0px_#0000000D]
+                            w-[313px] h-[40px] gap-[16px] rounded-[12px] border border-[1px] 
+                            mt-[40px]
+                        ">
+                        <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 md:h-[16px] md:w-[16px] text-gray-500 h-[14px] w-[14px]" />
+                        <Input
+                            placeholder="Search"
+                            className="w-full md:pl-[32px] pl-[30px] placeholder:[font-family:'Sans'] placeholder:font-medium font-[Sans] text-gray-500 font-medium caret-gray-500 placeholder:text-[16px] md:placeholder:text-[18px] text-[16px] md:text-[18px] h-full border-none shadow-none !outline-none !ring-0 !border-transparent"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onKeyDown={handlePressEnter}
+                        />
+                    </div>
 
-                <div className="mt-[40px]">
-                    <UserList userList={searchResult} />
-                </div>
-                {
-                    hasSearchedPerformed && searchResult.length===0 ?(
-                        <>
-                            <div className="w-[472.42px] h-[451.39px]">
-                                <img className="w-[472.42px] h-[402.39px] absolute top-[90px] left-[163.79px]"
-                                    src={NotFoundSearch}
-                                    alt="no search found"
-                                >
-                                </img>
-                                <div className="w-[204px] h-[22px] absolute top-[519.39px] left-[281.28px] font-inter font-medium text-lg leading-[21.78px] tracking-normal text-center text-[#999999]">
-                                    No results found.
+                    <div className="mt-[40px]">
+                        <UserList userList={searchResult} />
+                    </div>
+                    {
+                        hasSearchedPerformed && searchResult.length===0 ?(
+                            <>
+                                <div className="w-[472.42px] h-[451.39px]">
+                                    <img className="w-[472.42px] h-[402.39px] absolute top-[90px] left-[163.79px]"
+                                        src={NotFoundSearch}
+                                        alt="no search found"
+                                    >
+                                    </img>
+                                    <div className="w-[204px] h-[22px] absolute top-[519.39px] left-[281.28px] font-inter font-medium text-lg leading-[21.78px] tracking-normal text-center text-[#999999]">
+                                        No results found.
+                                    </div>
                                 </div>
-                            </div>
-                        </>
-                    ):(
-                        <></>
-                    )
-                }
-            </div>
+                            </>
+                        ):(
+                            <></>
+                        )
+                    }
+                </div>
+                </div>
         </div>
     )
 }
