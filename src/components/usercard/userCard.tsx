@@ -54,7 +54,9 @@ function UserCard({ userDetail }: { userDetail: searchResultInterface }){
                             </div>
                             <div className="flex items-center justify-center w-[136.57px] h-[45.71px] min-h-[45.71px] max-h-[45.71px] gap-[11.43px] rounded-[9.14px] pl-[4px] pr-[4px] pt-[2px] pb-[2px] !bg-[#18181B]">
                                 <div className="flex flex-col w-[100px] h-[19px] gap-[11.43px]">
-                                    <div className="font-inter font-medium text-base leading-[19.36px] tracking-normal text-[#FAFAFA]">
+                                    <div className="font-inter font-medium text-base leading-[19.36px] tracking-normal text-[#FAFAFA]"
+                                        onClick={()=>setOpen(true)}
+                                    >
                                         Fetch Details
                                     </div>
                                 </div>
