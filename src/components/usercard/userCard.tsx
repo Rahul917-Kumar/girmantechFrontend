@@ -12,36 +12,6 @@ function UserCard({ userDetail }: { userDetail: searchResultInterface }){
     const [open, setOpen] = useState<boolean>(false)
     return (
         <>
-            {/* <div className="w-[388.57px] h-[312.57px] rounded-[18.29px] p-[27.43px] bg-white shadow-md">
-                <div className="h-[166.29px] flex justify-between flex-col">
-                    <Avatar className="w-[70.86px] h-[70.86px]">
-                        <AvatarImage src={UserProfile} />
-                        <AvatarFallback>CN</AvatarFallback>
-                    </Avatar>
-                    <div className=" h-[68px]">
-                        <p className="font-inter font-semibold text-[36.57px] leading-[44.26px] text-gray-800">{userDetail.first_name} {userDetail.last_name}</p>
-                        <p className="flex items-center gap-2">
-                            <img src={Location} alt="" className="" />
-                            {userDetail.city}
-                        </p>
-                    </div>
-                </div>
-                <Separator className="mt-[36.56px] !bg-[#F3F3F3]"  /> 
-                <div className="h-[45.71px] mt-[9.15px] flex justify-between">
-                    <div>
-                        <div className="flex items-center gap-[6.86px] font-semibold">
-                            <img src={Phone} alt=""></img>
-                            {userDetail.contact_number}
-                        </div>
-                        <p className="text-[11.43px] text-[#AFAFAF]">
-                            Available on phone
-                        </p>
-                    </div>
-                    <div>
-                        <Button className="!text-white !bg-black text-[16px]" onClick={()=>setOpen(!open)}>Fetch Details</Button>
-                    </div>
-                </div>
-            </div> */}
             <div className="w-[388.57px] h-[312.57px] rounded-[18.29px] p-[27.43px] bg-white">
                 <div className="flex flex-col w-[333.71px] h-[257.71px] gap-[36.57px]">
                     <div className=" flex flex-col h-[166.29px] gap-[9.14px] ">
@@ -53,16 +23,16 @@ function UserCard({ userDetail }: { userDetail: searchResultInterface }){
                         </div>
                         <div className="flex flex-col  h-[68px] gap-[9.14px]">
                             <div className="h-[44px] font-inter font-semibold text-[36.57px] leading-[44.26px] tracking-normal ">
-                                Anjali Kejriwal
+                                {userDetail.first_name} {userDetail.last_name}
                             </div>
-                            <div className="flex flex-row gap-[9.14px] h-[14.86px]">
+                            <div className="flex items-center gap-[9.14px] h-[14.86px]">
                                 <img
                                     src={Location}
                                     className="w-[11.43px] h-[14.86px]"
                                 >
                                 </img>
                                 <div className="w-[44px] h-[14px] font-inter font-medium text-[11.43px] leading-[13.83px] tracking-normal text-[#425763]">
-                                    Mumbai
+                                    {userDetail.city}
                                 </div>
                             </div>
                         </div>
@@ -75,7 +45,7 @@ function UserCard({ userDetail }: { userDetail: searchResultInterface }){
                                     <img className="h-[14.86px] w-[14.86px] " src={Phone} alt="Phone Logo">
                                     </img>
                                     <div className="w-[93px] h-[17px] font-inter font-semibold text-[13.71px] leading-[16.6px] tracking-normal">
-                                        1234567890
+                                        {userDetail.contact_number}
                                     </div>
                                 </div>
                                 <div className="h-[14px] font-inter font-medium text-[11.43px] leading-[13.83px] tracking-normal text-[#AFAFAF]"> 

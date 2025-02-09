@@ -9,17 +9,19 @@ import { searchResultInterface } from "@/types";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import UserList from "../userlist/UserList";
-
+import NotFoundSearch from "@/assets/NoSearchFound.png"
 function SearchUser() {
     const { toast } = useToast()
     const [searchQuery, setSearchQuery] = useState<string>("")
     const [loading, setLoading] = useState<boolean>(false)
     const [searchResult, setSearchResult] = useState<searchResultInterface[]>([])
     const [isSearch, setIsSearch] = useState<boolean>(false)
+    const [hasSearchedPerformed, setHasSearchedPerformed] = useState<boolean>(false)
     const handlePressEnter = async (event: React.KeyboardEvent<HTMLInputElement>) => {
+        setHasSearchedPerformed(false)
         if (event.key === "Enter" && searchQuery.trim() !== "") {
-            setLoading(true);
             try {
+                setLoading(true);
                 console.log("search Query", searchQuery)
                 setIsSearch(true)
                 const payload = {
@@ -35,16 +37,10 @@ function SearchUser() {
                 setSearchResult(response.data.data)
 
             } catch (error) {
-                toast({
-                    title: "Something went wrong",
-                    description: "",
-                    variant: "destructive",
-                    className: cn(
-                        'top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4'
-                    ),
-                })
+                setSearchResult([])
             } finally {
                 setLoading(false);
+                setHasSearchedPerformed(true)
             }
         }
     }
@@ -85,6 +81,24 @@ function SearchUser() {
                 <div className="mt-[40px]">
                     <UserList userList={searchResult} />
                 </div>
+                {
+                    hasSearchedPerformed && searchResult.length===0 ?(
+                        <>
+                            <div className="w-[472.42px] h-[451.39px]">
+                                <img className="w-[472.42px] h-[402.39px] absolute top-[90px] left-[163.79px]"
+                                    src={NotFoundSearch}
+                                    alt="no search found"
+                                >
+                                </img>
+                                <div className="w-[204px] h-[22px] absolute top-[519.39px] left-[281.28px] font-inter font-medium text-lg leading-[21.78px] tracking-normal text-center text-[#999999]">
+                                    No results found.
+                                </div>
+                            </div>
+                        </>
+                    ):(
+                        <></>
+                    )
+                }
             </div>
         </div>
     )
