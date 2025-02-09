@@ -7,9 +7,10 @@ import { Search } from "lucide-react"; // Import the search icon
 import axios from "axios";
 import { searchResultInterface } from "@/types";
 import { useToast } from "@/hooks/use-toast";
-import { cn } from "@/lib/utils";
 import UserList from "../userlist/UserList";
 import NotFoundSearch from "@/assets/NoSearchFound.png"
+import UserCardShimmer from "../shimmer/UserCardShimmer"
+
 function SearchUser() {
     const { toast } = useToast()
     const [searchQuery, setSearchQuery] = useState<string>("")
@@ -17,6 +18,7 @@ function SearchUser() {
     const [searchResult, setSearchResult] = useState<searchResultInterface[]>([])
     const [isSearch, setIsSearch] = useState<boolean>(false)
     const [hasSearchedPerformed, setHasSearchedPerformed] = useState<boolean>(false)
+
     const handlePressEnter = async (event: React.KeyboardEvent<HTMLInputElement>) => {
         setHasSearchedPerformed(false)
         if (event.key === "Enter" && searchQuery.trim() !== "") {
@@ -58,7 +60,10 @@ function SearchUser() {
                         <></>
                     ):(
                         <>        
-                            <div className=" hidden md:flex md:w-[800px] md:h-[125px] md:gap-[39.99px]">
+                            <div 
+                                className={`hidden md:flex md:w-[800px] md:h-[125px] md:gap-[39.99px] transition-all duration-5000 ease-in-out ${isSearch ? "opacity-0 -translate-y-5 pointer-events-none" : "opacity-100 translate-y-0"
+                                    }`}
+                                >
                                 <img
                                     src={GirmanLogo}
                                     alt="Girman Logo"
@@ -73,7 +78,9 @@ function SearchUser() {
                         </>
                     )
                 }
-                <div>
+                <div
+                    className="flex flex-col md:top-[260px] md:left-[590px] gap-[40px] items-center justify-center"
+                >
                     <div 
                         className="
                             relative md:w-[800px] md:h-[50px] md:rounded-xl md:gap-4 md:mt-[0px] pl-4 pr-4 border border-[#D7D7EA] bg-white shadow-[0_4px_10px_0px_#0000000D]
@@ -89,24 +96,36 @@ function SearchUser() {
                             onKeyDown={handlePressEnter}
                         />
                     </div>
-
-                    <div className="mt-[40px]">
+                    {
+                        loading&&(
+                            <>
+                                <UserCardShimmer/>
+                            </>
+                        )
+                    }
                         <UserList userList={searchResult} />
-                    </div>
+                         
                     {
                         hasSearchedPerformed && searchResult.length===0 ?(
-                            <>
-                                <div className="w-[472.42px] h-[451.39px]">
-                                    <img className="w-[472.42px] h-[402.39px] absolute top-[90px] left-[163.79px]"
+                                <div className="
+                                    md:w-[472.42px] md:h-[451.39px]
+                                    w-[291.58px] h-[278.6px]
+                                ">
+                                    <img className="
+                                        md:w-[472.42px] md:h-[402.39px] absolute md:top-[90px] md:left-[163.79px]
+                                        w-[291.58px] h-[248.36px]
+                                    "
                                         src={NotFoundSearch}
                                         alt="no search found"
                                     >
                                     </img>
-                                    <div className="w-[204px] h-[22px] absolute top-[519.39px] left-[281.28px] font-inter font-medium text-lg leading-[21.78px] tracking-normal text-center text-[#999999]">
+                                    <div className="
+                                        md:w-[204px] md:h-[22px] absolute md:top-[519.39px] md:left-[281.28px]  font-inter font-medium text-lg leading-[21.78px] tracking-normal text-center text-[#999999]
+                                        w-[125.91px] h-[13.58px] top-[370.02px] left-[100.22px]
+                                        ">
                                         No results found.
                                     </div>
                                 </div>
-                            </>
                         ):(
                             <></>
                         )
