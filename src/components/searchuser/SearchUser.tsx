@@ -52,7 +52,7 @@ function SearchUser() {
                         <></>
                     ):(
                         <>        
-                            <div className="  flex md:w-[800px] md:h-[125px] md:gap-[39.99px]">
+                            <div className=" hidden md:flex md:w-[800px] md:h-[125px] md:gap-[39.99px]">
                                 <img
                                     src={GirmanLogo}
                                     alt="Girman Logo"

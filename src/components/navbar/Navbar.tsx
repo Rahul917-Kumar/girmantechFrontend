@@ -1,42 +1,80 @@
-import NavbarLogo from "@/assets/navbarLogo.png"
 import { useState } from "react";
-import { Menu } from "lucide-react"; // For the hamburger icon
-
+import { Menu } from "lucide-react";
+import NavbarLogo2 from "@/assets/navbarLogo2.png"
 function Navbar(){
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <div className="flex justify-center items-center h-[60px] md:h-[110px] shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
-                <div className="w-4/5 flex justify-between md:justify-around items-center">
-                    {/* Logo */}
-                    <div>
-                        <img src={NavbarLogo} alt="Logo" className="h-[30px] md:h-[60px] w-auto object-contain" />
+            <div 
+                className="
+                    flex justify-center items-center w-[100%] md:h-[110px] gap-[605.8px] bg-[#FFFFFF] shadow-[0px_1.41px_8.43px_0px_#00000040]
+                    h-[60px] 
+                ">
+                <div 
+                    className="
+                        md:w-[1000px] h-[60px] flex justify-between items-center
+                        w-[393px] pr-[40px] pl-[40px] justify-between 
+                    ">
+                    <div 
+                        className="
+                            flex flex-row md:w-[220.91px] md:gap-[12.65px]
+                            w-[106.1px] xs:h-[30px] gap-[6.1px]
+                        ">
+                        <img src={NavbarLogo2} 
+                            className="
+                                md:w-[62.26px] md:h-[62.26px] md:rounded-[5.15px]
+                                w-[30px] h-[30px] rounded-[2.48px]
+                            "></img>
+                        <div 
+                            className="
+                                md:w-[146px] md:h-[60px]
+                                w-[70px] h-[29px]
+                            ">
+                            <div 
+                                className="
+                                    w-full md:h-[43px] font-Poppins font-bold md:text-[37.23px] md:leading-[42.17px] tracking-normal text-[#111111]
+                                    h-[21px] text-[17.94px] leading-[20.32px]
+                                ">Girman</div>
+                            <div 
+                                className="
+                                    md:w-[135px] md:h-[17px] font-Poppins font-semibold uppercase md:text-[11.24px] md:leading-[16.87px] tracking-[0.4em] text-[#111111]
+                                    md:w-[65px] h-[8px] text-[5.42px] leading-[8.13px]
+                                ">Technologies</div>
+                        </div>
                     </div>
-
-                    {/* Desktop Nav Links */}
-                    <div className="hidden md:flex justify-center items-center gap-4">
-                        <p className="uppercase text-2xl">Search</p>
-                        <p className="uppercase text-2xl">Website</p>
-                        <p className="uppercase text-2xl">Linkedin</p>
-                        <p className="uppercase text-2xl">Contact</p>
+                    <div className="hidden md:flex flex-row w-[547px] h-[29px] gap-[40px]">
+                        <div className=" font-['Inter'] font-bold text-[24px] leading-[29.05px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6]">SEARCH</div>
+                        <div className=" font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px]"
+                            onClick={() => window.open("https://girmantech.com/")}
+                        >WEBSITE</div>
+                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px]"
+                            onClick={() => window.open("https://www.linkedin.com/company/girmantech/", "_blank")}
+                        >LINKEDIN</div>
+                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px]"
+                            onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=contact@girmantech.com", "_blank")}
+                        >CONTACT</div>
                     </div>
-
-                    {/* Mobile Hamburger Menu - Fixed Center Alignment */}
-                    <div className="md:hidden flex items-center h-full">
-                        <button onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
-                            <Menu className="w-[24px] h-[24px]" />
-                        </button>
-
-                        {/* Dropdown Menu */}
-                        {isOpen && (
-                            <div className="absolute right-4 top-16 bg-white shadow-lg rounded-lg p-4">
-                                <p className="uppercase text-sm md:text-2xl py-2 cursor-pointer">Search</p>
-                                <p className="uppercase text-sm md:text-2xl py-2 cursor-pointer">Website</p>
-                                <p className="uppercase text-sm md:text-2xl py-2 cursor-pointer">Linkedin</p>
-                                <p className="uppercase text-sm md:text-2xl py-2 cursor-pointer">Contact</p>
-                            </div>
-                        )}
-                    </div>
+                    <Menu className="md:hidden w-[24px] h-[24px]" onClick={() => setIsOpen(!isOpen)} />
+                    {
+                        isOpen && (
+                            <>
+                                <div className="md:hidden w-[90px] h-[166px] absolute z-10 top-[45px] left-[263px] gap-[10px] rounded-[6px] border border-[#E3E3E3] bg-white shadow-[0px_4px_4px_0px_#00000040] bg-white">
+                                    <div className="flex flex-col items-center p-[10px] gap-[24px]">
+                                        <div className="font-['Inter'] font-bold text-[12px] leading-[14.52px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6]">SEARCH</div>
+                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px]"
+                                            onClick={() => window.open("https://girmantech.com/")}
+                                        >WEBSITE</div>
+                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px]"
+                                            onClick={() => window.open("https://www.linkedin.com/company/girmantech/", "_blank")}
+                                        >LINKEDIN</div>
+                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px]"
+                                            onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=contact@girmantech.com", "_blank")}
+                                        >CONTACT</div>
+                                    </div>
+                                </div>
+                            </>
+                        )
+                    }
                 </div>
             </div>
 
