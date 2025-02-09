@@ -5,8 +5,11 @@ import Location from "@/assets/location.png"
 import { Separator } from "@/components/ui/separator"
 import Phone from "@/assets/phone.png"
 import { Button } from "../ui/button"
+import UserDetail from "../userdetails/UserDetail"
+import { useState } from "react"
 
 function UserCard({ userDetail }: { userDetail: searchResultInterface }){
+    const [open, setOpen] = useState<boolean>(false)
     return (
         <>
             <div className="w-[388.57px] h-[312.57px] rounded-[18.29px] p-[27.43px] bg-white shadow-md">
@@ -35,10 +38,11 @@ function UserCard({ userDetail }: { userDetail: searchResultInterface }){
                         </p>
                     </div>
                     <div>
-                        <Button className="!text-white !bg-black text-[16px]">Fetch Details</Button>
+                        <Button className="!text-white !bg-black text-[16px]" onClick={()=>setOpen(!open)}>Fetch Details</Button>
                     </div>
                 </div>
             </div>
+            <UserDetail userDetail={userDetail} open={open} onClose={setOpen}/>
         </>
     )
 }
