@@ -1,50 +1,16 @@
-# React + TypeScript + Vite
+# Description
+- This project is realted to the assignment given to me by company name ``girmantech``
+- Created a search based functionality like google
+- we can type users name in the input field and we will see list of users with matching names
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ ## Preview Images
 
-Currently, two official plugins are available:
+ ![image](https://github.com/user-attachments/assets/47fa62b4-ff7e-476e-bb17-4d5344d392eb)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![image](https://github.com/user-attachments/assets/e2231bb8-058b-4b3c-ad96-83d00dccdcac)
 
-## Expanding the ESLint configuration
+![image](https://github.com/user-attachments/assets/18c32427-a183-4a3c-a548-f2760a34e6ae)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![image](https://github.com/user-attachments/assets/c1e8d8d8-aa68-4dc3-bb59-380d77bd1e38)
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+![image](https://github.com/user-attachments/assets/fff20065-0e33-4879-aab6-324878f11455)
