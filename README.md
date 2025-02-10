@@ -1,5 +1,5 @@
 # Description
-- This project is realted to the assignment given to me by company name ``girmantech``
+- This project is realted to...
 - Created a search based functionality like google
 - we can type users name in the input field and we will see list of users with matching names
 
