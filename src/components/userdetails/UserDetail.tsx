@@ -8,6 +8,7 @@ import {
 
 import UserProfile from "@/assets/userProfile.png"
 import { Button } from "../ui/button";
+import { X } from "lucide-react";
 
 interface Props {
     userDetail: searchResultInterface,
@@ -18,21 +19,21 @@ interface Props {
 function UserDetail({ userDetail, open, onClose }: Props) {
     return (
         <>
-        {/* top-[205px] left-[47px] */}
             <Dialog open={open} onOpenChange={onClose}>
-                <DialogOverlay className="bg-none">
+                <DialogOverlay className="bg-transparent">
 
                     <DialogContent 
                         className="
-                        !bg-white text-black md:w-[512px] md:h-[475px] md:space-y-4 md:rounded-lg md:p-6 bg-white shadow-md text-[#09090B]
-                        w-[299px] h-[447px]  rounded-[7.41px] p-[22.22px] gap-[14.81px]
+                            !bg-white text-black md:w-[512px] md:h-[475px] md:space-y-4 md:rounded-lg md:p-6 bg-white shadow-md text-[#09090B] [&>button]:hidden
+                            w-[299px] h-[447px]  rounded-[7.41px] p-[22.22px] gap-[14.81px]
                         "
                     >
-                        <div className="md:w-[424px] md:m-0 w-[392.5px]">
-                            <div className="md:gap-[10px] gap-[9.26px]">
+                        <div className="md:w-[424px] md:m-0 w-[260px]">
+                            <div className="flex justify-between items-center md:block md:gap-[10px] gap-[9.26px]">
                                 <div className="md:h-[29px] font-inter font-semibold md:text-[24px] md:leading-[29.05px] md:tracking-[0px] h-[27px] text-[#09090B] text-[22.22px] leading-[26.89px] tracking-normal">
                                     Fetch Details
                                 </div>
+                                <X className=" md:hidden w-[22.22px] h-[22.22px]" onClick={()=>onClose(false)} />
                             </div>
                             <div className="md:gap-[10px] md:mt-2 gap-[9.26px] pt-[7.41px]">
                                 <div className="md:w-[424px] md:h-[17px] font-inter font-normal md:text-[14px] md:leading-[16.94px] md:tracking-[0] text-[12.96px] leading-[15.68px] tracking-normal text-[#71717A]">
@@ -59,13 +60,6 @@ function UserDetail({ userDetail, open, onClose }: Props) {
                     </DialogContent>
                 </DialogOverlay>
             </Dialog>
-            {/* <Dialog open={open} onOpenChange={onClose}>
-                <DialogOverlay>
-                    <DialogContent>
-                        Testing
-                    </DialogContent>
-                </DialogOverlay>
-            </Dialog> */}
         </>
     )
 }
