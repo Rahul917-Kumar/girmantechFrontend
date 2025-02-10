@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import UserList from "../userlist/UserList";
 import NotFoundSearch from "@/assets/NoSearchFound.png"
 import UserCardShimmer from "../shimmer/UserCardShimmer"
+import { cn } from "@/lib/utils"
 
 function SearchUser() {
     const { toast } = useToast()
@@ -29,17 +30,24 @@ function SearchUser() {
                 const payload = {
                     search: searchQuery
                 }
-                const response = await axios.post("http://localhost:8000/users/search-user/", payload, {
+                const response = await axios.post("http://localhost:8080/users/search-user/", payload, {
                     headers: { "Content-Type": "application/json" }
                 })
-                console.log("response", response.data.data)
-                if (response.status !== 200) {
-                    console.log("not able to fetch result")
+                if (response.status === 500) {
+                    throw Error("Something went wrong")
                 }
                 setSearchResult(response.data.data)
 
             } catch (error) {
                 setSearchResult([])
+                toast({
+                    className: cn(
+                        'top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4'
+                    ),
+                    variant: 'default',
+                    title: 'Uh oh! Something went wrong.',
+                    description: 'Please try again later.',
+                })
             } finally {
                 setLoading(false);
                 setHasSearchedPerformed(true)
@@ -53,7 +61,6 @@ function SearchUser() {
                     flex md:flex-col absolute md:top-[260px] md:left-[560px] ${!isSearch ?"gap-[80px]":""} 
                     left-[40px]
                 `}
-
             >
                 {
                     isSearch?(
