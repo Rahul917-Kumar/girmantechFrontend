@@ -1,74 +1,44 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import NavbarLogo2 from "@/assets/navbarLogo2.png"
+import {navbarCss} from "./navbar-css";
+
+const linkedinUrl = "https://www.linkedin.com/company/girmantech/"
+const websiteUrl ="https://girmantech.com/"
+const mailToUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=contact@girmantech.com"
+
 function Navbar(){
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <div 
-                className="
-                    flex justify-center items-center w-[100%] md:h-[110px] gap-[605.8px] bg-[#FFFFFF] shadow-[0px_1.41px_8.43px_0px_#00000040]
-                    h-[60px] 
-                ">
-                <div 
-                    className="
-                        md:w-[1000px] h-[60px] flex justify-between items-center
-                        w-[393px] pr-[40px] pl-[40px] justify-between 
-                    ">
-                    <div 
-                        className="
-                            flex flex-row md:w-[220.91px] md:gap-[12.65px]
-                            w-[106.1px] xs:h-[30px] gap-[6.1px]
-                        ">
-                        <img src={NavbarLogo2} 
-                            className="
-                                md:w-[62.26px] md:h-[62.26px] md:rounded-[5.15px]
-                                w-[30px] h-[30px] rounded-[2.48px]
-                            "></img>
-                        <div 
-                            className="
-                                 md:h-[60px]
-                                w-[70px] h-[29px]
-                            ">
-                            <div 
-                                className="
-                                    w-full md:h-[43px] font-Poppins font-[700] md:text-[37.23px] md:leading-[42.17px] tracking-normal text-[#111111]
-                                    h-[21px] text-[17.94px] leading-[20.32px]
-                                ">Girman</div>
-                            <div 
-                                className="
-                                    md:w-[135px] md:h-[17px] font-Poppins font-semibold uppercase md:text-[11.24px] md:leading-[16.87px] tracking-[0.4em] text-[#111111]
-                                    md:w-[65px] h-[8px] text-[5.42px] leading-[8.13px]
-                                ">Technologies</div>
+            <div className={navbarCss.container}>
+                <div className={navbarCss.innerContainer}>
+                    <div className={navbarCss.iconsContainer}>
+                        <img src={NavbarLogo2} className={navbarCss.iconImage}></img>
+                        <div className={navbarCss.iconNameContainer}>
+                            <div className={navbarCss.iconNameHeading}>Girman</div>
+                            <div className={navbarCss.iconNameSubheading}>Technologies</div>
                         </div>
                     </div>
-                    <div className="hidden md:flex flex-row w-[547px] h-[29px] gap-[40px]">
-                        <div className=" font-['Inter'] font-bold text-[24px] leading-[29.05px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6] cursor-pointer">SEARCH</div>
-                        <div className=" font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px] cursor-pointer"
-                            onClick={() => window.open("https://girmantech.com/")}
-                        >WEBSITE</div>
-                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px] cursor-pointer"
-                            onClick={() => window.open("https://www.linkedin.com/company/girmantech/", "_blank")}
+                    <div className={navbarCss.menuContainer}>
+                        <div className={navbarCss.menuSearch}>SEARCH</div>
+                        <div className={navbarCss.otherMenuChild} onClick={() => window.open(websiteUrl)}>WEBSITE</div>
+                        <div className={navbarCss.otherMenuChild} onClick={() => window.open(linkedinUrl, "_blank")}
                         >LINKEDIN</div>
-                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px] cursor-pointer"
-                            onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=contact@girmantech.com", "_blank")}
-                        >CONTACT</div>
+                        <div className={navbarCss.otherMenuChild} onClick={() => window.open(mailToUrl, "_blank")}>CONTACT</div>
                     </div>
-                    <Menu className="md:hidden w-[24px] h-[24px]" onClick={() => setIsOpen(!isOpen)} />
+                    <Menu 
+                        className={navbarCss.hamburderIcon}
+                        onClick={() => setIsOpen(!isOpen)} />
                     {
                         isOpen && (
                             <>
-                                <div className="md:hidden flex items-center justify-center w-[90px] h-[166px] absolute z-10 top-[45px] left-[263px] gap-[10px] rounded-[6px] border border-[#E3E3E3] bg-white shadow-[0px_4px_4px_0px_#00000040] bg-white">
-                                    <div className="flex flex-col justify-center items-center p-[10px] gap-[24px]">
-                                        <div className="font-['Inter'] font-bold text-[12px] leading-[14.52px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6] cursor-pointer">SEARCH</div>
-                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px] cursor-pointer"
-                                            onClick={() => window.open("https://girmantech.com/")}
-                                        >WEBSITE</div>
-                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px] cursor-pointer"
-                                            onClick={() => window.open("https://www.linkedin.com/company/girmantech/", "_blank")}
-                                        >LINKEDIN</div>
-                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px] cursor-pointer"
-                                            onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=contact@girmantech.com", "_blank")}
+                                <div className={navbarCss.menuContainerMobile}>
+                                    <div className={navbarCss.menuContainerMobileChild}>
+                                        <div className={navbarCss.menuSearchMobile}>SEARCH</div>
+                                        <div className={navbarCss.otherMenuChildMobile} onClick={() => window.open(websiteUrl)}>WEBSITE</div>
+                                        <div className={navbarCss.otherMenuChildMobile} onClick={() => window.open(linkedinUrl, "_blank")}>LINKEDIN</div>
+                                        <div className={navbarCss.otherMenuChildMobile} onClick={() => window.open(mailToUrl, "_blank")}
                                         >CONTACT</div>
                                     </div>
                                 </div>
