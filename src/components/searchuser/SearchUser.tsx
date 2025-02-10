@@ -1,4 +1,3 @@
-import GirmanSearchLogo from "@/assets/Girman search logo.svg"
 import GirmanLogo from "@/assets/grimam-logo.png"
 import GirmanLogoName from "@/assets/griman-name.png"
 import { useState } from "react"
@@ -11,6 +10,8 @@ import UserList from "../userlist/UserList";
 import NotFoundSearch from "@/assets/NoSearchFound.png"
 import UserCardShimmer from "../shimmer/UserCardShimmer"
 import { cn } from "@/lib/utils"
+
+const apiEndPoint = import.meta.env.VITE_API_API_ENDPOINT;
 
 function SearchUser() {
     const { toast } = useToast()
@@ -30,7 +31,7 @@ function SearchUser() {
                 const payload = {
                     search: searchQuery
                 }
-                const response = await axios.post("http://localhost:8080/users/search-user/", payload, {
+                const response = await axios.post(`${apiEndPoint}/users/search-user/`, payload, {
                     headers: { "Content-Type": "application/json" }
                 })
                 if (response.status === 500) {
