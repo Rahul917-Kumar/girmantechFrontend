@@ -27,12 +27,12 @@ function Navbar(){
                             "></img>
                         <div 
                             className="
-                                md:w-[146px] md:h-[60px]
+                                 md:h-[60px]
                                 w-[70px] h-[29px]
                             ">
                             <div 
                                 className="
-                                    w-full md:h-[43px] font-Poppins font-bold md:text-[37.23px] md:leading-[42.17px] tracking-normal text-[#111111]
+                                    w-full md:h-[43px] font-Poppins font-[700] md:text-[37.23px] md:leading-[42.17px] tracking-normal text-[#111111]
                                     h-[21px] text-[17.94px] leading-[20.32px]
                                 ">Girman</div>
                             <div 

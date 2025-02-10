@@ -42,16 +42,16 @@ function UserDetail({ userDetail, open, onClose }: Props) {
                             </div>
                         </div>
                         <div className="flex flex-col md:gap-[10px] md:m-0 gap-[9.26px]">
-                            <div className="md:w-[208px] md:h-[51px] font-inter font-medium md:text-[14px] md:leading-[16.8px] md:tracking-[0] w-[192.54px] h-[48px] text-[12.96px] leading-[15.55px] tracking-normal">
+                            <div className="md:w-[208px] md:h-[51px] font-inter font-medium md:text-[14px] md:leading-[16.8px] md:tracking-[0] w-[192.54px] h-[48px] text-[12.96px] leading-[15.55px] tracking-normal text-[#09090B]">
                                 Name: {userDetail.first_name} {userDetail.last_name}<br />Location: {userDetail.city}<br /> Contact Number: {userDetail.contact_number}
                             </div>
-                            <div className="md:w-[92px] md:h-[17px] font-inter font-medium md:text-[14px] md:leading-[16.94px] md:tracking-[0px] w-[85px] h-[16px] text-[12.96px] leading-[15.68px] tracking-[0px]">
+                            <div className="md:w-[92px] md:h-[17px] font-inter font-medium md:text-[14px] md:leading-[16.94px] md:tracking-[0px] w-[85px] h-[16px] text-[12.96px] leading-[15.68px] tracking-[0px] text-[#09090B]">
                                 Profile Image:
                             </div>
                         </div>
                         <img className="md:w-[207px] md:h-[207px] m-0 w-[191.61px] h-[191.62px]" src={UserProfile} alt=""></img>
                         <div className="hidden md:flex md:justify-end">
-                            <Button className="md:w-[70px] md:h-[40px] md:min-h-[40px] md:max-h-[40px] md:gap-[10px] md:rounded-md border md:border-[1px] md:py-2 md:px-4 border-[#E4E4E7] bg-white"
+                            <Button className="md:w-[70px] md:h-[40px] md:min-h-[40px] md:max-h-[40px] md:gap-[10px] md:rounded-md border md:border-[1px] md:py-2 md:px-4 border-[#E4E4E7] bg-white text-[#09090B]"
                                 onClick={()=>onClose(false)}    
                             >
                                 Close
