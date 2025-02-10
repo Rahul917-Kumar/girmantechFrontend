@@ -3,7 +3,7 @@ import GirmanLogoName from "@/assets/griman-name.png"
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Search } from "lucide-react"; // Import the search icon
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { searchResultInterface } from "@/types";
 import { useToast } from "@/hooks/use-toast";
 import UserList from "../userlist/UserList";
@@ -22,11 +22,10 @@ function SearchUser() {
     const [hasSearchedPerformed, setHasSearchedPerformed] = useState<boolean>(false)
 
     const handlePressEnter = async (event: React.KeyboardEvent<HTMLInputElement>) => {
-        setHasSearchedPerformed(false)
         if (event.key === "Enter" && searchQuery.trim() !== "") {
             try {
+                setHasSearchedPerformed(false)
                 setLoading(true);
-                console.log("search Query", searchQuery)
                 setIsSearch(true)
                 const payload = {
                     search: searchQuery
@@ -34,21 +33,21 @@ function SearchUser() {
                 const response = await axios.post(`${apiEndPoint}/users/search-user/`, payload, {
                     headers: { "Content-Type": "application/json" }
                 })
-                if (response.status === 500) {
-                    throw Error("Something went wrong")
-                }
                 setSearchResult(response.data.data)
 
             } catch (error) {
+                const err = error as AxiosError;
+                if (err.status ===500){
+                    toast({
+                        className: cn(
+                            'top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4'
+                        ),
+                        variant: 'default',
+                        title: 'Uh oh! Something went wrong.',
+                        description: 'Please try again later.',
+                    })
+                }
                 setSearchResult([])
-                toast({
-                    className: cn(
-                        'top-0 right-0 flex fixed md:max-w-[420px] md:top-4 md:right-4'
-                    ),
-                    variant: 'default',
-                    title: 'Uh oh! Something went wrong.',
-                    description: 'Please try again later.',
-                })
             } finally {
                 setLoading(false);
                 setHasSearchedPerformed(true)
