@@ -1,10 +1,8 @@
 import { searchResultInterface } from "@/types"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import UserProfile from "@/assets/userProfile.png"
 import Location from "@/assets/location.png"
 import { Separator } from "@/components/ui/separator"
 import Phone from "@/assets/phone.png"
-import { Button } from "../ui/button"
 import UserDetail from "../userdetails/UserDetail"
 import { useState } from "react"
 
