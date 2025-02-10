@@ -43,14 +43,14 @@ function Navbar(){
                         </div>
                     </div>
                     <div className="hidden md:flex flex-row w-[547px] h-[29px] gap-[40px]">
-                        <div className=" font-['Inter'] font-bold text-[24px] leading-[29.05px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6]">SEARCH</div>
-                        <div className=" font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px]"
+                        <div className=" font-['Inter'] font-bold text-[24px] leading-[29.05px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6] cursor-pointer">SEARCH</div>
+                        <div className=" font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px] cursor-pointer"
                             onClick={() => window.open("https://girmantech.com/")}
                         >WEBSITE</div>
-                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px]"
+                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px] cursor-pointer"
                             onClick={() => window.open("https://www.linkedin.com/company/girmantech/", "_blank")}
                         >LINKEDIN</div>
-                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px]"
+                        <div className="font-['Inter'] font-['Inter'] font-normal text-[24px] leading-[29.05px] tracking-[-0.2px] cursor-pointer"
                             onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=contact@girmantech.com", "_blank")}
                         >CONTACT</div>
                     </div>
@@ -58,16 +58,16 @@ function Navbar(){
                     {
                         isOpen && (
                             <>
-                                <div className="md:hidden w-[90px] h-[166px] absolute z-10 top-[45px] left-[263px] gap-[10px] rounded-[6px] border border-[#E3E3E3] bg-white shadow-[0px_4px_4px_0px_#00000040] bg-white">
-                                    <div className="flex flex-col items-center p-[10px] gap-[24px]">
-                                        <div className="font-['Inter'] font-bold text-[12px] leading-[14.52px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6]">SEARCH</div>
-                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px]"
+                                <div className="md:hidden flex items-center justify-center w-[90px] h-[166px] absolute z-10 top-[45px] left-[263px] gap-[10px] rounded-[6px] border border-[#E3E3E3] bg-white shadow-[0px_4px_4px_0px_#00000040] bg-white">
+                                    <div className="flex flex-col justify-center items-center p-[10px] gap-[24px]">
+                                        <div className="font-['Inter'] font-bold text-[12px] leading-[14.52px] tracking-[-0.2px] underline underline-offset-auto text-[#3063E6] cursor-pointer">SEARCH</div>
+                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px] cursor-pointer"
                                             onClick={() => window.open("https://girmantech.com/")}
                                         >WEBSITE</div>
-                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px]"
+                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px] cursor-pointer"
                                             onClick={() => window.open("https://www.linkedin.com/company/girmantech/", "_blank")}
                                         >LINKEDIN</div>
-                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px]"
+                                        <div className="font-['Inter'] font-normal text-[12px] leading-[14.52px] tracking-[-0.2px] cursor-pointer"
                                             onClick={() => window.open("https://mail.google.com/mail/?view=cm&fs=1&to=contact@girmantech.com", "_blank")}
                                         >CONTACT</div>
                                     </div>
