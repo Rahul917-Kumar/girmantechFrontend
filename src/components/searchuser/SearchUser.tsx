@@ -25,6 +25,7 @@ function SearchUser() {
     const handlePressEnter = async (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter" && searchQuery.trim() !== "") {
             try {
+                setSearchResult([])
                 setHasSearchedPerformed(false)
                 setLoading(true);
                 setIsSearch(true)
